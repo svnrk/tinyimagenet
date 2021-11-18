@@ -1,0 +1,35 @@
+hydra:
+  run:
+    dir: results/${model.module}.${model.arch}/${now:%Y-%m-%d_%H-%M-%S}
+
+defaults:
+  - data: tinyimagenet
+
+augmentation:
+  pre: config/augmentation/pre.yaml
+  main: config/augmentation/default.yaml
+  post: config/augmentation/post.yaml
+
+results:
+  checkpoints:
+    root: checkpoints
+    tag: tensorboard
+    name: model
+
+train:
+  epochs: 30
+  batch_size: 128
+  num_workers: 4
+  monitor: val_acc
+
+model:
+  arch: resnet18
+  module: models  # `models` for custom arch
+  pretrained: false
+
+optimizer:
+  name: SGD
+  parameters:  # passed as **kwargs
+    lr: 0.1
+    momentum: 0.9
+    weight_decay: 1e-5
