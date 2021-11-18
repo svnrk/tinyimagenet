@@ -31,12 +31,23 @@ transform:
     always_apply: false
     eps: null
     gamma_limit:
-    - 80
-    - 120
+    - 60
+    - 140
     p: 0.5
   - __class_fullname__: albumentations.augmentations.transforms.RandomContrast
     always_apply: false
     limit:
     - -0.2
     - 0.2
+    p: 0.5
+  - __class_fullname__: albumentations.augmentations.transforms.RandomBrightness 
+    always_apply: false
+    limit: 0.2
+    p: 0.5
+  - __class_fullname__: albumentations.augmentations.transforms.Cutout 
+    always_apply: false
+    num_holes: 8 
+    max_h_size: 8
+    max_w_size: 8
+    fill_value: 0
     p: 0.5
