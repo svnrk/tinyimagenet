@@ -1,0 +1,2 @@
+- train.epochs=40
+- train.batch_size=256
