@@ -1,0 +1,5 @@
+- train.epochs=20
+- train.batch_size=256
+- model.module=torchvision
+- model.arch=resnet50
+- model.pretrained=true

@@ -89,7 +89,9 @@ def evaluate_model(
 
     loss_function = loss.CrossEntropyLoss()
     model = instantiate(cfg.model)
+    model = modules.models.ResidualNetwork(num_units=2, base_channels=64, n_classes=200)
     try:
+        
         model.load_state_dict(torch.load(checkpoint_path, map_location="cpu"))
     except RuntimeError as e:
         log.error("Failed loading state dict")
