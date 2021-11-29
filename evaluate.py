@@ -11,6 +11,7 @@ from omegaconf import OmegaConf
 from torch.nn.modules import loss
 from torch.utils.data import DataLoader
 
+import modules
 from modules.dataset import DatasetItem, TinyImagenetDataset
 from modules.runner import test
 from modules.transform import to_tensor_normalize
