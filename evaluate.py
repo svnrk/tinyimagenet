@@ -11,6 +11,7 @@ from omegaconf import OmegaConf
 from torch.nn.modules import loss
 from torch.utils.data import DataLoader
 
+from modules.models import ResidualNetwork
 from modules.dataset import DatasetItem, TinyImagenetDataset
 from modules.runner import test
 from modules.transform import to_tensor_normalize
@@ -89,7 +90,7 @@ def evaluate_model(
 
     loss_function = loss.CrossEntropyLoss()
     model = instantiate(cfg.model)
-    model = modules.models.ResidualNetwork(num_units=2, base_channels=64, n_classes=200)
+    model = ResidualNetwork(num_units=2, base_channels=64, n_classes=200)
     try:
         
         model.load_state_dict(torch.load(checkpoint_path, map_location="cpu"))
