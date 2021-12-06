@@ -1,4 +1,5 @@
 # Image Classifier for Tiny ImageNet
+based on https://github.com/papkov/tinyimagenet
 
 ## Project structure
 | Local directory | Description | 
